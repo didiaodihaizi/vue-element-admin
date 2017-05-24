@@ -194,6 +194,7 @@
         fetchData() {
           getArticle().then(response => {
             this.postForm = response.data;
+            console.log(response)
           }).catch(err => {
             this.fetchSuccess = false;
             console.log(err);
@@ -288,4 +289,3 @@
     }
   }
 </style>
-

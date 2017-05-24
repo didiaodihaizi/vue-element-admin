@@ -60,6 +60,10 @@ const Form1 = resolve => require(['../views/example/form1'], resolve);
 /* permission */
 const Permission = resolve => require(['../views/permission/index'], resolve);
 
+/* permission */
+const Demo = resolve => require(['../views/demo/demo'], resolve);
+const Dform = resolve => require(['../views/demo/form'], resolve);
+
 
 Vue.use(Router);
 
@@ -105,6 +109,17 @@ export default new Router({
       meta: { role: ['admin'] },
       noDropdown: true,
       children: [{ path: 'index', component: Permission, name: '权限测试页', meta: { role: ['admin'] } }]
+    },
+    {
+      path: '/demo',
+      component: Layout,
+      redirect: '/demo/demo',
+      name: 'demo1',
+      icon: 'quanxian',
+      children: [
+        { path: 'demo', component: Demo, name: '11', meta: { role: ['admin'] } },
+      
+      ]
     },
     {
       path: '/components',

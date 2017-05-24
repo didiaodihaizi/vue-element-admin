@@ -2,6 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import loginAPI from './login';
 import articleAPI from './article';
+import demoApi from './demo';
 import article_tableAPI from './article_table';
 import remoteSearchAPI from './remoteSearch';
 const mock = new MockAdapter(axios);
@@ -10,6 +11,8 @@ const mock = new MockAdapter(axios);
 mock.onPost('/login/loginbyemail').reply(loginAPI.loginByEmail);
 mock.onPost('/login/logout').reply(loginAPI.logout);
 mock.onGet('/user/info').reply(loginAPI.getInfo);
+
+mock.onGet('/demo/list').reply(demoApi.getData);
 
 // 文章相关
 mock.onGet('/article/list').reply(articleAPI.getList);
